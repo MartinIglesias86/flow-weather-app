@@ -8,12 +8,13 @@ import { Dropdown } from './components/Dropdown';
 import { Loader } from 'semantic-ui-react';
 import env from "react-dotenv";
 
-
+// Configure environment variables
 const URL = env.REACT_APP_API_URL;
 const API_KEY = env.REACT_APP_API_KEY
 
-
+// Main App component
 function App() {
+  // State variables
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [city, setCity] = useState('Current Location');
@@ -26,20 +27,20 @@ function App() {
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(true);
   
-
+  // Get location
   useEffect(() => {
+    // Get current location if no city is selected in the dropdown
     if (!latitude || !longitude) {
       navigator.geolocation.getCurrentPosition(position => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       })
     }
+    // Get weather data for selected city
     axios.get(`${URL}/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${API_KEY}`)
       .then(weatherData => {
-        console.log(weatherData.data);
         let cityName = weatherData.data.timezone.split('/')[1].replace('_', ' ');
-        // let country = weatherData.data.timezone.split('/')[1].replace('_', ' ');
-        setCity(`${cityName}`);
+        setCity( cityName === 'Argentina' ? `${weatherData.data.timezone.split('/')[2].replace('_', ' ')}` : `${cityName}`);
         setLoading(false);
         setTemperature(weatherData.data.current.temp);
         setHumidity(weatherData.data.current.humidity);

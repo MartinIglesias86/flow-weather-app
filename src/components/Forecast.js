@@ -2,11 +2,13 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 import moment from 'moment'
 
+// Forecast component
 export function Forecast({forecast}) {
+  // forecastList is an array of objects representing the forecast for the next 5 days
   let forecastList = forecast.slice(1, 6)
 
   return (
-    <div style={{marginTop: 20}}>
+    <div className='forecast-container'>
       <Card.Group itemsPerRow={5}>
       {forecastList.map((data) => {
         return (
@@ -18,7 +20,7 @@ export function Forecast({forecast}) {
               <Card.Header className='forecast-header'>
                 <b>Temperature</b>: {Math.round((data.temp.max + data.temp.min)/2)}°C
               </Card.Header>
-              <Card.Meta className='forecast-header'>
+              <Card.Meta className='forecast-header humidity'>
                 <b>Humidity</b>: {data.humidity}%
               </Card.Meta>
               <Card.Description className='temp-desc'>

@@ -4,8 +4,11 @@ import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faCloud, faCloudRain, faSmog, faSnowflake, faSun, faTornado, faWind, } from '@fortawesome/free-solid-svg-icons'
 
+// WeatherCard component
 const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, date, icon }) => {
+  // Initialize icon as null
   let weatherIcons = null
+  // Switch icon based on weather condition
   switch (icon) {
     case 'Haze':
       weatherIcons = <FontAwesomeIcon icon={faCloud} />

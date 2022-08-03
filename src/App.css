@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 .main {
-  height: 80vh;
+  /* height: 80vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@
   justify-content: space-between;
 }
 .weather-card-main {
-  width: 400px !important;
+  width: 25% !important;
   border-top: 2px solid red !important;
 }
 
@@ -24,6 +24,7 @@
   margin: 20px;
   color: #8155BA;
   font-weight: 600;
+  line-height: 40px;
 }
 
 .weather-card-child{
@@ -56,5 +57,44 @@
 }
 
 .dropdown-menu {
-  width: 400px !important;
+  width: 400px ;
+}
+
+.icon-container{
+  position: absolute;
+  right: 20px;
+}
+
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.humidity {
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .forecast-card {
+    min-width: 43%;
+  }
+  .dropdown-menu {
+    max-width: 80%;
+  }
+
+  .weather-card-main {
+    width: 100% !important;
+  }
+
+  .forecast-container {
+    justify-content: space-between;
+    margin-right: -0.5em;
+  }
+
+  .app-header {
+    text-align: center;
+  }
 }
