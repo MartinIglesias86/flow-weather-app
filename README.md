@@ -1,70 +1,60 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ✨ Weather App using [Open Weather Map API](https://openweathermap.org/)
 
-## Available Scripts
+This project is a weather app that shows the current weather and the 5 day forecast for a city.
+If you choose a city from the drop-down menu it will show you the information from that city, but by default or if you don't pick an option from the drop-down, it will show the info based on geolocation.
 
-In the project directory, you can run:
+ 
+## 🔧 Characteristics and commands
 
-### `npm start`
+### 👨🏻‍💻 Install
+To run the project install all the dependencies using the following command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npm i`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+💻 Run the project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+You can start the project with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm run start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+By default you can see the main page on [localhost:3000](http://localhost:3000/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 About Me
+I'm a full stack developer interested in continuing to learn and work with:
 
-### `npm run eject`
+➡ Solidity
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+➡ Express.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+➡ Node.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+➡ React.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+➡ Next.js
 
-## Learn More
+➡ Docker
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+➡ MongoDB
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I’m interested in learning and working on improving people’s lives through technology. I’m constantly learning new things, and have a special affinity for new languages (both IT-related and spoken!).
+I currently live in San Carlos de Bariloche, Argentina.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🛠 Skills used on this project
+* HTML & CSS
+* [React.js](https://reactjs.org/)
+* [Axios](https://axios-http.com/docs/intro)
+* [Moment.js](https://momentjs.com/)
+* [Semantic UI](https://react.semantic-ui.com/)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🔗 Links
+[![github](https://img.shields.io/badge/github-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/MartinIglesias86) 
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/martin-iglesias86)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/Martin_codes86)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
