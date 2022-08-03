@@ -15,8 +15,9 @@ const API_KEY = env.REACT_APP_API_KEY
 // Main App component
 function App() {
   // State variables
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+  // [-34.6132, -58.3772]
+  const [latitude, setLatitude] = useState('-34.6132');
+  const [longitude, setLongitude] = useState('-58.3772');
   const [city, setCity] = useState('Current Location');
   const [temperature, setTemperature] = useState(null);
   const [humidity, setHumidity] = useState(null);
@@ -30,7 +31,7 @@ function App() {
   // Get location
   useEffect(() => {
     // Get current location if no city is selected in the dropdown
-    if (!latitude || !longitude) {
+    if ((latitude === '-34.6132' ) && (longitude === '-58.3772')) {
       navigator.geolocation.getCurrentPosition(position => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
