@@ -86,6 +86,7 @@ const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, date, icon 
                   <b>Sunset</b>: {new Date(sunset * 1000).toLocaleTimeString()}
                 </div>
               </div>
+              <div className='info-box'>The times shown are expressed in your local timezone</div>
             </Feed.Content>
           </Feed.Event>
         </Feed>

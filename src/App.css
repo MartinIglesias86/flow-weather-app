@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+body {
+  background: #addaef7d;
+}
+
 .main {
   /* height: 80vh; */
   display: flex;
@@ -97,4 +101,13 @@
   .app-header {
     text-align: center;
   }
+}
+
+.info-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  opacity: 0.5;
 }
