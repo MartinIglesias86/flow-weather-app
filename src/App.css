@@ -111,3 +111,8 @@ body {
   margin-top: 20px;
   opacity: 0.5;
 }
+
+.footer {
+  text-align: center;
+  margin-top: 50px;
+}

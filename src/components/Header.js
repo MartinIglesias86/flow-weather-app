@@ -4,8 +4,8 @@ export function Header() {
   
 
   return (
-    <div className='app-header'>
-      Flow Weather App
-    </div>
+    <header className='app-header'>
+      <h1>Flow Weather App</h1>
+    </header>
   )
 }

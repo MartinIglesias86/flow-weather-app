@@ -8,6 +8,7 @@ import { Forecast } from './components/Forecast';
 import { Dropdown } from './components/Dropdown';
 import { Loader } from 'semantic-ui-react';
 import env from "react-dotenv";
+import { Footer } from './components/Footer';
 
 // Configure environment variables
 const URL = env.REACT_APP_API_URL;
@@ -59,21 +60,23 @@ function App() {
       })
     }, [latitude, longitude]);
   return (
-    <div className="main">
+    <main className="main">
       <Header />
-      <Dropdown
-        setLatitude={setLatitude}
-        setLongitude={setLongitude}
-        latitude={latitude}
-        longitude={longitude}
-      />
+      <section>
+        <Dropdown
+          setLatitude={setLatitude}
+          setLongitude={setLongitude}
+          latitude={latitude}
+          longitude={longitude}
+        />
+      </section>
       { loading ? (
-        <div>
+        <section>
           <p>Loading... please wait</p>
           <Loader active inline='centered' />
-        </div>
+        </section>
       ) : (
-        <WeatherCard 
+          <WeatherCard 
           temperature={temperature} 
           city={city} 
           humidity={humidity} 
@@ -81,11 +84,13 @@ function App() {
           sunset={sunset} 
           date={date}
           icon={icon}
-        />
+          />
       ) }
-      
-      <Forecast forecast={forecast}/>
-    </div>
+      <section>
+        <Forecast forecast={forecast}/>
+      </section>
+      <Footer />
+    </main>
   );
 }
 
