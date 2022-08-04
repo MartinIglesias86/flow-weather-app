@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import React, { Component }  from 'react';
 import axios from 'axios';
 import './App.css';
 import { Header } from './components/Header';
@@ -19,11 +20,11 @@ function App() {
   const [latitude, setLatitude] = useState('-34.6132');
   const [longitude, setLongitude] = useState('-58.3772');
   const [city, setCity] = useState('Current Location');
-  const [temperature, setTemperature] = useState(null);
-  const [humidity, setHumidity] = useState(null);
-  const [sunrise, setSunrise] = useState(null);
-  const [sunset, setSunset] = useState(null);
-  const [date, setDate] = useState(null);
+  const [temperature, setTemperature] = useState('');
+  const [humidity, setHumidity] = useState('');
+  const [sunrise, setSunrise] = useState('');
+  const [sunset, setSunset] = useState('');
+  const [date, setDate] = useState('');
   const [icon, setIcon] = useState('');
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,16 +41,18 @@ function App() {
     // Get weather data for selected city
     axios.get(`${URL}/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${API_KEY}`)
       .then(weatherData => {
-        let cityName = weatherData.data.timezone.split('/')[1].replace('_', ' ');
+        let cityName = weatherData.data.timezone || 'Current Location';
+        cityName = cityName.split('/')[1] || cityName;
+        cityName = cityName.replace('_', ' ');
         setCity( cityName === 'Argentina' ? `${weatherData.data.timezone.split('/')[2].replace('_', ' ')}` : `${cityName}`);
         setLoading(false);
-        setTemperature(weatherData.data.current.temp);
-        setHumidity(weatherData.data.current.humidity);
-        setSunrise(weatherData.data.current.sunrise);
-        setSunset(weatherData.data.current.sunset);
-        setDate(weatherData.data.current.dt);
-        setIcon(weatherData.data.current.weather[0].main);
-        setForecast(weatherData.data.daily);
+        setTemperature(weatherData.data.current.temp ? weatherData.data.current.temp : 'no data');
+        setHumidity(weatherData.data.current.humidity ? weatherData.data.current.humidity : 'no data');
+        setSunrise(weatherData.data.current.sunrise ? weatherData.data.current.sunrise : 'no data');
+        setSunset(weatherData.data.current.sunset ? weatherData.data.current.sunset : 'no data');
+        setDate(weatherData.data.current.dt ? weatherData.data.current.dt : 'no data');
+        setIcon(weatherData.data.current.weather[0].main ? weatherData.data.current.weather[0].main : 'no data');
+        setForecast(weatherData.data.daily ? weatherData.data.daily : []);
       })
       .catch(err => {
         console.log('Error: ', err);
