@@ -2,9 +2,7 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 import moment from 'moment'
 
-// Forecast component
 export function Forecast({forecast}) {
-  // forecastList is an array of objects representing the forecast for the next 5 days
   let forecastList = forecast.slice(1, 6)
 
   return (

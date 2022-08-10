@@ -10,14 +10,10 @@ import { Loader } from 'semantic-ui-react';
 import env from "react-dotenv";
 import { Footer } from './components/Footer';
 
-// Configure environment variables
 const URL = env.REACT_APP_API_URL;
 const API_KEY = env.REACT_APP_API_KEY
 
-// Main App component
 function App() {
-  // State variables
-  // [-34.6132, -58.3772]
   const [latitude, setLatitude] = useState('-34.6132');
   const [longitude, setLongitude] = useState('-58.3772');
   const [city, setCity] = useState('Current Location');
@@ -29,17 +25,14 @@ function App() {
   const [icon, setIcon] = useState('');
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  // Get location
+
   useEffect(() => {
-    // Get current location if no city is selected in the dropdown
     if ((latitude === '-34.6132' ) && (longitude === '-58.3772')) {
       navigator.geolocation.getCurrentPosition(position => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       })
     }
-    // Get weather data for selected city
     axios.get(`${URL}/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${API_KEY}`)
       .then(weatherData => {
         let cityName = weatherData.data.timezone || 'Current Location';

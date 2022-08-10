@@ -2,7 +2,7 @@
 # ✨ Weather App using [Open Weather Map API](https://openweathermap.org/)
 
 This project is a weather app that shows the current weather and the 5 day forecast for a city.
-If you choose a city from the drop-down menu it will show you the information from that city, but by default or if you don't pick an option from the drop-down, it will show the info based on geolocation.
+If you choose a city from the drop-down menu it will show you the information from that city, but by default or if you don't pick an option from the drop-down, it will show the info based on geo-location if you authorize it, if you don't it will show the information from Buenos Aires, Argentina.
 
  
 ## 🔧 Characteristics and commands
