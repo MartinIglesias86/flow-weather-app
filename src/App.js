@@ -9,13 +9,14 @@ import { Dropdown } from './components/Dropdown';
 import { Loader } from 'semantic-ui-react';
 import env from "react-dotenv";
 import { Footer } from './components/Footer';
+import Swal from 'sweetalert2';
 
 const URL = env.REACT_APP_API_URL;
-const API_KEY = env.REACT_APP_API_KEY
+const API_KEY = env.REACT_APP_API_KEY;
 
 function App() {
-  const [latitude, setLatitude] = useState('-34.6132');
-  const [longitude, setLongitude] = useState('-58.3772');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
   const [city, setCity] = useState('Current Location');
   const [datos, setDatos] = useState({});
   const [icon, setIcon] = useState('');
@@ -23,10 +24,17 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if ((latitude === '-34.6132' ) && (longitude === '-58.3772')) {
+    if ((latitude === '' ) && (longitude === '')) {
       navigator.geolocation.getCurrentPosition(position => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
+      }, () => {
+        Swal.fire({
+          title: 'Attention',
+          text: 'Please allow location services to use this app or select a city from the dropdown menu',
+          icon: 'warning',
+          confirmButtonText: 'Ok'
+        })
       })
     }
     axios.get(`${URL}/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${API_KEY}`)
@@ -57,7 +65,7 @@ function App() {
       </section>
       { loading ? (
         <section>
-          <p>Loading... please wait</p>
+          <p>Please choose a city</p>
           <Loader active inline='centered' />
         </section>
       ) : (
