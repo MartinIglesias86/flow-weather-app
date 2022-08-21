@@ -5,57 +5,57 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faCloud, faCloudRain, faSmog, faSnowflake, faSun, faTornado, faWind, } from '@fortawesome/free-solid-svg-icons'
 
 const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, icon }) => {
-  let weatherIcons = null
   switch (icon) {
     case 'Haze':
-      weatherIcons = <FontAwesomeIcon icon={faCloud} size='lg' color='#212121'/>
+      icon = faCloud
       break;
     case 'Thunderstorm' :
-      weatherIcons = <FontAwesomeIcon icon={faBolt} size='lg' color='#212121'/>
+      icon = faBolt
       break;
     case 'Drizzle':
-      weatherIcons = <FontAwesomeIcon icon={faCloudRain} size='lg' color='#212121'/>
+      icon = faCloudRain
       break;
     case 'Rain':
-      weatherIcons = <FontAwesomeIcon icon={faCloudRain} size='lg' color='#212121'/>
+      icon = faCloudRain
       break;
     case 'Snow':
-      weatherIcons = <FontAwesomeIcon icon={faSnowflake} size='lg' color='#212121'/>
+      icon = faSnowflake
       break;
     case 'Mist':
-      weatherIcons = <FontAwesomeIcon icon={faSmog} size='lg' color='#212121'/>
+      icon = faSmog
       break;
     case 'Clear':
-      weatherIcons = <FontAwesomeIcon icon={faSun} size='lg' color='#212121'/>
+      icon = faSun
       break;
     case 'Clouds':
-      weatherIcons = <FontAwesomeIcon icon={faCloud} size='lg' color='#212121'/>
+      icon = faCloud
       break;
     case 'Smoke':
-      weatherIcons = <FontAwesomeIcon icon={faSmog} size='lg' color='#212121'/>
+      icon = faSmog
       break;
     case 'Dust':
-      weatherIcons = <FontAwesomeIcon icon={faSun} size='lg' color='#212121'/>
+      icon = faSun
       break;
     case 'Fog':
-      weatherIcons = <FontAwesomeIcon icon={faSmog} size='lg' color='#212121'/>
+      icon = faSmog
       break;
     case 'Sand':
-      weatherIcons = <FontAwesomeIcon icon={faSun} size='lg' color='#212121'/>
+      icon = faSun
       break;
     case 'Ash':
-      weatherIcons = <FontAwesomeIcon icon={faSmog} size='lg' color='#212121'/>
+      icon = faSmog
       break;
     case 'Squall':
-      weatherIcons = <FontAwesomeIcon icon={faWind} size='lg' color='#212121'/>
+      icon = faWind
       break;
     case 'Tornado':
-      weatherIcons = <FontAwesomeIcon icon={faTornado} size='lg' color='#212121'/>
+      icon = faTornado
       break;
     default:
-      weatherIcons = <FontAwesomeIcon icon={faSun} size='lg' color='#212121'/>
+      icon = faSun
       break;
   }
+  let weatherIcons = <FontAwesomeIcon icon={icon} size='lg' color='#212121'/>
   return (
     <Card className='weather-card-main'>
       <Card.Content className='weather-card'>
@@ -69,7 +69,7 @@ const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, icon }) => 
               <h5 className='weather-card-child'>{moment().format('LL')}</h5>
               <div className='weather-card'>
                 <div className='weather-card-child'>
-                  <b>Temperature</b>: {temperature}°C
+                  <b>Temperature</b>: {Math.round(temperature)}°C
                 </div>
                 <div className='weather-card-child'>
                   <b>Humidity</b>: {humidity}%

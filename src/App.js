@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import React, { Component }  from 'react';
+import React  from 'react';
 import axios from 'axios';
 import './App.css';
 import { Header } from './components/Header';
@@ -17,11 +17,7 @@ function App() {
   const [latitude, setLatitude] = useState('-34.6132');
   const [longitude, setLongitude] = useState('-58.3772');
   const [city, setCity] = useState('Current Location');
-  const [temperature, setTemperature] = useState('');
-  const [humidity, setHumidity] = useState('');
-  const [sunrise, setSunrise] = useState('');
-  const [sunset, setSunset] = useState('');
-  const [date, setDate] = useState('');
+  const [datos, setDatos] = useState({});
   const [icon, setIcon] = useState('');
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,11 +36,7 @@ function App() {
         cityName = cityName.replace('_', ' ');
         setCity( cityName === 'Argentina' ? `${weatherData.data.timezone.split('/')[2].replace('_', ' ')}` : `${cityName}`);
         setLoading(false);
-        setTemperature(weatherData.data.current.temp ? weatherData.data.current.temp : 'no data');
-        setHumidity(weatherData.data.current.humidity ? weatherData.data.current.humidity : 'no data');
-        setSunrise(weatherData.data.current.sunrise ? weatherData.data.current.sunrise : 'no data');
-        setSunset(weatherData.data.current.sunset ? weatherData.data.current.sunset : 'no data');
-        setDate(weatherData.data.current.dt ? weatherData.data.current.dt : 'no data');
+        setDatos(weatherData.data.current);
         setIcon(weatherData.data.current.weather[0].main ? weatherData.data.current.weather[0].main : 'no data');
         setForecast(weatherData.data.daily ? weatherData.data.daily : []);
       })
@@ -70,12 +62,12 @@ function App() {
         </section>
       ) : (
           <WeatherCard 
-          temperature={temperature} 
+          temperature={datos.temp} 
           city={city} 
-          humidity={humidity} 
-          sunrise={sunrise} 
-          sunset={sunset} 
-          date={date}
+          humidity={datos.humidity} 
+          sunrise={datos.sunrise} 
+          sunset={datos.sunset} 
+          date={datos.dt}
           icon={icon}
           />
       ) }
