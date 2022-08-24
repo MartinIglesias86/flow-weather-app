@@ -87,6 +87,7 @@ body {
   }
   .dropdown-menu {
     max-width: 80%;
+    margin: auto;
   }
 
   .weather-card-main {

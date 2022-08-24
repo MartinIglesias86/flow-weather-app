@@ -5,6 +5,12 @@ This project is a weather app that shows the current weather and the 5 day forec
 If you choose a city from the drop-down menu it will show you the information from that city, but by default or if you don't pick an option from the drop-down, it will show the info based on geo-location if you authorize it, if you don't it will show the information from Buenos Aires, Argentina.
 
  
+# Disclosure
+
+Fully knowing that it shouldn't be done this way, but thinking in a practical way to present the challenge, the environmental variables and the .env file
+are gonna be on the project repository. In a real project that data would not be accesible to the client.
+
+
 ## 🔧 Characteristics and commands
 
 ### 👨🏻‍💻 Install
@@ -47,7 +53,6 @@ I currently live in San Carlos de Bariloche, Argentina.
 * HTML & CSS
 * [React.js](https://reactjs.org/)
 * [Axios](https://axios-http.com/docs/intro)
-* [Moment.js](https://momentjs.com/)
 * [Semantic UI](https://react.semantic-ui.com/)
 
 

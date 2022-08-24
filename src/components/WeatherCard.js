@@ -1,61 +1,27 @@
 import React from 'react'
 import { Card, Feed } from 'semantic-ui-react'
-import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faCloud, faCloudRain, faSmog, faSnowflake, faSun, faTornado, faWind, } from '@fortawesome/free-solid-svg-icons'
 
-const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, icon }) => {
-  switch (icon) {
-    case 'Haze':
-      icon = faCloud
-      break;
-    case 'Thunderstorm' :
-      icon = faBolt
-      break;
-    case 'Drizzle':
-      icon = faCloudRain
-      break;
-    case 'Rain':
-      icon = faCloudRain
-      break;
-    case 'Snow':
-      icon = faSnowflake
-      break;
-    case 'Mist':
-      icon = faSmog
-      break;
-    case 'Clear':
-      icon = faSun
-      break;
-    case 'Clouds':
-      icon = faCloud
-      break;
-    case 'Smoke':
-      icon = faSmog
-      break;
-    case 'Dust':
-      icon = faSun
-      break;
-    case 'Fog':
-      icon = faSmog
-      break;
-    case 'Sand':
-      icon = faSun
-      break;
-    case 'Ash':
-      icon = faSmog
-      break;
-    case 'Squall':
-      icon = faWind
-      break;
-    case 'Tornado':
-      icon = faTornado
-      break;
-    default:
-      icon = faSun
-      break;
-  }
-  let weatherIcons = <FontAwesomeIcon icon={icon} size='lg' color='#212121'/>
+const WeatherCard = ({ datos, city, icon }) => {
+  const icons = {
+    'Haze': faCloud,
+    'Thunde': faBolt,
+    'Drizzl': faCloudRain,
+    'Rain': faCloudRain,
+    'Snow': faSnowflake,
+    'Mist': faSmog,
+    'Clear':  faSun,
+    'Clouds': faCloud,
+    'Smoke': faSmog,
+    'Dust': faSun,
+    'Fog': faSmog,
+    'Sand': faSun,
+    'Ash': faSmog,
+    'Squall': faWind,
+    'Tornado': faTornado
+}
+  let weatherIcons = <FontAwesomeIcon icon={icons[icon]} size='lg' color='#212121'/>
   return (
     <Card className='weather-card-main'>
       <Card.Content className='weather-card'>
@@ -66,21 +32,21 @@ const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, icon }) => 
         <Feed>
           <Feed.Event>
             <Feed.Content>
-              <h5 className='weather-card-child'>{moment().format('LL')}</h5>
+              <h5 className='weather-card-child'>Date: {new Intl.DateTimeFormat('en-GB', { dateStyle: 'long'}).format(datos.dt * 1000)}</h5>
               <div className='weather-card'>
                 <div className='weather-card-child'>
-                  <b>Temperature</b>: {Math.round(temperature)}°C
+                  <b>Temperature</b>: {Math.round(datos.temp)}°C
                 </div>
                 <div className='weather-card-child'>
-                  <b>Humidity</b>: {humidity}%
+                  <b>Humidity</b>: {datos.humidity}%
                 </div>
               </div>
               <div className='weather-card'>
                 <div className='weather-card-child'>
-                  <b>Sunrise</b>: {new Date(sunrise * 1000).toLocaleTimeString()}
+                  <b>Sunrise</b>: {new Date(datos.sunrise * 1000).toLocaleTimeString()}
                 </div>
                 <div className='weather-card-child'>
-                  <b>Sunset</b>: {new Date(sunset * 1000).toLocaleTimeString()}
+                  <b>Sunset</b>: {new Date(datos.sunset * 1000).toLocaleTimeString()}
                 </div>
               </div>
               <div className='info-box'>The times shown are expressed in your local timezone</div>
@@ -92,4 +58,4 @@ const WeatherCard = ({ temperature, city, humidity, sunrise, sunset, icon }) => 
   )
 }
 
-export default WeatherCard
+export  {WeatherCard}

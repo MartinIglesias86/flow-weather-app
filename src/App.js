@@ -1,18 +1,16 @@
-import { useEffect, useState } from 'react';
-import React  from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Header } from './components/Header';
-import WeatherCard from './components/WeatherCard';
+import { WeatherCard } from './components/WeatherCard';
 import { Forecast } from './components/Forecast';
 import { Dropdown } from './components/Dropdown';
 import { Loader } from 'semantic-ui-react';
-import env from "react-dotenv";
 import { Footer } from './components/Footer';
 import Swal from 'sweetalert2';
 
-const URL = env.REACT_APP_API_URL;
-const API_KEY = env.REACT_APP_API_KEY;
+const URL = process.env.REACT_APP_API_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [latitude, setLatitude] = useState('');
@@ -45,7 +43,7 @@ function App() {
         setCity( cityName === 'Argentina' ? `${weatherData.data.timezone.split('/')[2].replace('_', ' ')}` : `${cityName}`);
         setLoading(false);
         setDatos(weatherData.data.current);
-        setIcon(weatherData.data.current.weather[0].main ? weatherData.data.current.weather[0].main : 'no data');
+        setIcon(weatherData.data.current.weather[0].main ? weatherData.data.current.weather[0].main : 'Clear');
         setForecast(weatherData.data.daily ? weatherData.data.daily : []);
       })
       .catch(err => {
@@ -59,8 +57,6 @@ function App() {
         <Dropdown
           setLatitude={setLatitude}
           setLongitude={setLongitude}
-          latitude={latitude}
-          longitude={longitude}
         />
       </section>
       { loading ? (
@@ -70,12 +66,8 @@ function App() {
         </section>
       ) : (
           <WeatherCard 
-          temperature={datos.temp} 
+          datos={datos}
           city={city} 
-          humidity={datos.humidity} 
-          sunrise={datos.sunrise} 
-          sunset={datos.sunset} 
-          date={datos.dt}
           icon={icon}
           />
       ) }

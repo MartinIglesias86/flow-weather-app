@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
-import moment from 'moment'
 
 export function Forecast({forecast}) {
   let forecastList = forecast.slice(1, 6)
@@ -13,7 +12,7 @@ export function Forecast({forecast}) {
           <Card className='forecast-card' key={data.dt}>
             <Card.Content>
               <Card.Header className='forecast-date'>
-                <b>Date</b>: {moment(data.dt * 1000).format('LL')}
+                <b>Date</b>: {new Intl.DateTimeFormat('en-GB').format(data.dt * 1000)}
               </Card.Header>
               <Card.Header className='forecast-header'>
                 <b>Temperature</b>: {Math.round((data.temp.max + data.temp.min)/2)}°C
