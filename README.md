@@ -8,7 +8,7 @@ If you choose a city from the drop-down menu it will show you the information fr
 # Disclosure
 
 Fully knowing that it shouldn't be done this way, but thinking in a practical way to present the challenge, the environmental variables and the .env file
-are gonna be on the project repository. In a real project that data would not be accesible to the client.
+are going to be on the project repository. In a real project that data would not be accesible to the client.
 
 
 ## 🔧 Characteristics and commands
